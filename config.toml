@@ -66,7 +66,7 @@ pluralizelisttitles = false
     weight     = 2
 
 [[menu.main]]
-    name       = "Container"
+    name       = "Docker"
     identifier = "menu.container"
     url        = "/container/"
     weight     = 3
