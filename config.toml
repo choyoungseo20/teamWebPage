@@ -84,16 +84,22 @@ pluralizelisttitles = false
     weight     = 5
 
 [[menu.main]]
+    name       = "Blog"
+    identifier = "menu.blog"
+    url        = "/blog/"
+    weight     = 6
+
+[[menu.main]]
     name       = "FAQ"
     identifier = "menu.faq"
     url        = "/faq/"
-    weight     = 6
+    weight     = 7
 
 [[menu.main]]
     identifier = "contact"
     name       = "Contact"
     url        = "/contact/"
-    weight     = 7
+    weight     = 8
 
 
 # Top bar social links menu
@@ -132,7 +138,7 @@ pluralizelisttitles = false
     viewMorePostLink = "/blog/"
     author = "DevCows"
     defaultKeywords = ["devcows", "hugo", "go"]
-    mainSections = ["linux", "container", "git", "web"]
+    mainSections = ["linux", "container", "git", "web", "blog"]
     defaultDescription = "Site template made by Devcows using Hugo"
 
     # Social media
