@@ -7,13 +7,13 @@
 <meta name="googlebot" content="index,follow,snippet,archive">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Go is for lovers</title>
+<title>GIT 개요와 사용법</title>
 <meta name="author" content="DevCows" />
 
 
 
 
-<meta name="keywords" content="devcows, hugo, go">
+<meta name="keywords" content="devcows, hugo, go, golang, programming, theme">
 
 
 <meta name="description" content="Site template made by Devcows using Hugo">
@@ -36,7 +36,7 @@
 
 
 
-<link href="/teamWebPage/css/custom.css?1684934274" rel="stylesheet">
+<link href="/teamWebPage/css/custom.css?1685343506" rel="stylesheet">
 
 
 
@@ -63,31 +63,13 @@
 
 
 
-
-<meta property="og:locale" content="en_us">
-<meta property="og:site_name" content="Universal">
-<meta property="og:title" content="Go is for lovers">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://choyoungseo20.github.io/teamWebPage/git/go-is-for-lovers/" />
-<meta property="og:description" content="Site template made by Devcows using Hugo">
-<meta property="og:image" content="https://choyoungseo20.github.io/teamWebPage/img/banners/banner-2.jpg">
-<meta property="og:image:type" content="image/jpg">
-
-
-
-  <meta property="og:image:width" content="1000">
-  <meta property="og:image:height" content="750">
-
-
-<meta property="og:updated_time" content="2015-09-17T13:47:08&#43;0200">
+<meta property="og:updated_time" content="2023-05-28T21:29:20&#43;0200">
 
 
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@GoHugoIO">
-<meta name="twitter:title" content="Go is for lovers">
-
-<meta name="twitter:image" content="https://choyoungseo20.github.io/teamWebPage/img/banners/banner-2.jpg">
+<meta name="twitter:title" content="GIT 개요와 사용법">
 
 <meta name="twitter:description" content="Site template made by Devcows using Hugo">
 
@@ -139,10 +121,10 @@
             <div class="navbar-header">
                 <a class="navbar-brand home" href="/teamWebPage/">
                     
-                      <img src="/teamWebPage/img/logo.png" alt="Go is for lovers logo" class="hidden-xs hidden-sm" />
-                      <img src="/teamWebPage/img/logo-small.png" alt="Go is for lovers logo" class="visible-xs visible-sm" />
+                      <img src="/teamWebPage/img/logo.png" alt="GIT 개요와 사용법 logo" class="hidden-xs hidden-sm" />
+                      <img src="/teamWebPage/img/logo-small.png" alt="GIT 개요와 사용법 logo" class="visible-xs visible-sm" />
                     
-                    <span class="sr-only">Go is for lovers - go to homepage</span>
+                    <span class="sr-only">GIT 개요와 사용법 - go to homepage</span>
                 </a>
                 <div class="navbar-buttons">
                     <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
@@ -216,7 +198,7 @@
 
                   
                   <li class="dropdown ">
-                    <a href="/teamWebPage/container/">Docker</a>
+                    <a href="/teamWebPage/container/">Container</a>
                   </li>
                   
                   
@@ -306,7 +288,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Go is for lovers</h1>
+                <h1>GIT 개요와 사용법</h1>
             </div>
         </div>
     </div>
@@ -325,8 +307,10 @@
                         
                           <p class="text-muted text-uppercase mb-small text-right">
                             
+			      By <a href="/teamWebPage/authors/%EC%A1%B0%EC%98%81%EC%84%9C">조영서</a>
                             
                             
+                            
                               
                               
                                   
@@ -353,246 +337,223 @@
                               
                                   
                               
-                              September 17, 2015
+                              May 28, 2023
                             
                           </p>
                         
 
                         <div id="post-content">
-                          <p>Hugo uses the excellent <a href="http://golang.org/">go</a> <a href="http://golang.org/pkg/html/template/">html/template</a> library for
-its template engine. It is an extremely lightweight engine that provides a very
-small amount of logic. In our experience that it is just the right amount of
-logic to be able to create a good static website. If you have used other
-template systems from different languages or frameworks you will find a lot of
-similarities in go templates.</p>
-<p>This document is a brief primer on using go templates. The <a href="http://golang.org/pkg/html/template/">go docs</a>
-provide more details.</p>
-<h2 id="introduction-to-go-templates">Introduction to Go Templates</h2>
-<p>Go templates provide an extremely simple template language. It adheres to the
-belief that only the most basic of logic belongs in the template or view layer.
-One consequence of this simplicity is that go templates parse very quickly.</p>
-<p>A unique characteristic of go templates is they are content aware. Variables and
-content will be sanitized depending on the context of where they are used. More
-details can be found in the <a href="http://golang.org/pkg/html/template/">go docs</a>.</p>
-<h2 id="basic-syntax">Basic Syntax</h2>
-<p>Go lang templates are html files with the addition of variables and
-functions.</p>
-<p><strong>Go variables and functions are accessible within {{ }}</strong></p>
-<p>Accessing a predefined variable &ldquo;foo&rdquo;:</p>
-<pre><code>{{ foo }}
-</code></pre>
-<p><strong>Parameters are separated using spaces</strong></p>
-<p>Calling the add function with input of 1, 2:</p>
-<pre><code>{{ add 1 2 }}
-</code></pre>
-<p><strong>Methods and fields are accessed via dot notation</strong></p>
-<p>Accessing the Page Parameter &ldquo;bar&rdquo;</p>
-<pre><code>{{ .Params.bar }}
-</code></pre>
-<p><strong>Parentheses can be used to group items together</strong></p>
-<pre><code>{{ if or (isset .Params &quot;alt&quot;) (isset .Params &quot;caption&quot;) }} Caption {{ end }}
-</code></pre>
-<h2 id="variables">Variables</h2>
-<p>Each go template has a struct (object) made available to it. In hugo each
-template is passed either a page or a node struct depending on which type of
-page you are rendering. More details are available on the
-<a href="/layout/variables">variables</a> page.</p>
-<p>A variable is accessed by referencing the variable name.</p>
-<pre><code>&lt;title&gt;{{ .Title }}&lt;/title&gt;
-</code></pre>
-<p>Variables can also be defined and referenced.</p>
-<pre><code>{{ $address := &quot;123 Main St.&quot;}}
-{{ $address }}
-</code></pre>
-<h2 id="functions">Functions</h2>
-<p>Go template ship with a few functions which provide basic functionality. The go
-template system also provides a mechanism for applications to extend the
-available functions with their own. <a href="/layout/functions">Hugo template
-functions</a> provide some additional functionality we believe
-are useful for building websites. Functions are called by using their name
-followed by the required parameters separated by spaces. Template
-functions cannot be added without recompiling hugo.</p>
-<p><strong>Example:</strong></p>
-<pre><code>{{ add 1 2 }}
-</code></pre>
-<h2 id="includes">Includes</h2>
-<p>When including another template you will pass to it the data it will be
-able to access. To pass along the current context please remember to
-include a trailing dot. The templates location will always be starting at
-the /layout/ directory within Hugo.</p>
-<p><strong>Example:</strong></p>
-<pre><code>{{ template &quot;chrome/header.html&quot; . }}
-</code></pre>
-<h2 id="logic">Logic</h2>
-<p>Go templates provide the most basic iteration and conditional logic.</p>
-<h3 id="iteration">Iteration</h3>
-<p>Just like in go, the go templates make heavy use of range to iterate over
-a map, array or slice. The following are different examples of how to use
-range.</p>
-<p><strong>Example 1: Using Context</strong></p>
-<pre><code>{{ range array }}
-    {{ . }}
-{{ end }}
-</code></pre>
-<p><strong>Example 2: Declaring value variable name</strong></p>
-<pre><code>{{range $element := array}}
-    {{ $element }}
-{{ end }}
-</code></pre>
-<p><strong>Example 2: Declaring key and value variable name</strong></p>
-<pre><code>{{range $index, $element := array}}
-    {{ $index }}
-    {{ $element }}
-{{ end }}
-</code></pre>
-<h3 id="conditionals">Conditionals</h3>
-<p>If, else, with, or, &amp; and provide the framework for handling conditional
-logic in Go Templates. Like range, each statement is closed with <code>end</code>.</p>
-<p>Go Templates treat the following values as false:</p>
+                          <hr>
+<h1 id="git-개요">GIT 개요</h1>
 <ul>
-<li>false</li>
-<li>0</li>
-<li>any array, slice, map, or string of length zero</li>
+<li>분산 버전 관리 시스템</li>
+<li>2005년 리누스 토발즈가 개발</li>
+<li>라이선스: GPL V2.0</li>
+<li>개발배경
+<ul>
+<li>2002년부터 리눅스 버전 관리시스템으로 BitKeeper(BitMover사의 상용 SW, 2016년 오픈소스, 개발 중단) 사용</li>
+<li>BitMover사가 리눅스 개발자들이 무료로 사용할 수 있도록 하였으나, 앤드루 트리젤이 비슷한 소스 풀러를 만들면서 리눅스 개발자들에 대한 무료 사용을 철회</li>
+<li>리누스 토발즈가 다른 오픈소스 버전관리 시스템을 사용하려 하였으나 당시 원하는 기능을 만족하는 SW가 없어서 직접 만들게 됨</li>
+<li>그 후 리눅스 버전 관리 시스템으로 사용되면 현재 가장 많이 사용되는 버전 관리 시스템이 됨</li>
 </ul>
-<p><strong>Example 1: If</strong></p>
-<pre><code>{{ if isset .Params &quot;title&quot; }}&lt;h4&gt;{{ index .Params &quot;title&quot; }}&lt;/h4&gt;{{ end }}
-</code></pre>
-<p><strong>Example 2: If -&gt; Else</strong></p>
-<pre><code>{{ if isset .Params &quot;alt&quot; }}
-    {{ index .Params &quot;alt&quot; }}
-{{else}}
-    {{ index .Params &quot;caption&quot; }}
-{{ end }}
-</code></pre>
-<p><strong>Example 3: And &amp; Or</strong></p>
-<pre><code>{{ if and (or (isset .Params &quot;title&quot;) (isset .Params &quot;caption&quot;)) (isset .Params &quot;attr&quot;)}}
-</code></pre>
-<p><strong>Example 4: With</strong></p>
-<p>An alternative way of writing &ldquo;if&rdquo; and then referencing the same value
-is to use &ldquo;with&rdquo; instead. With rebinds the context <code>.</code> within its scope,
-and skips the block if the variable is absent.</p>
-<p>The first example above could be simplified as:</p>
-<pre><code>{{ with .Params.title }}&lt;h4&gt;{{ . }}&lt;/h4&gt;{{ end }}
-</code></pre>
-<p><strong>Example 5: If -&gt; Else If</strong></p>
-<pre><code>{{ if isset .Params &quot;alt&quot; }}
-    {{ index .Params &quot;alt&quot; }}
-{{ else if isset .Params &quot;caption&quot; }}
-    {{ index .Params &quot;caption&quot; }}
-{{ end }}
-</code></pre>
-<h2 id="pipes">Pipes</h2>
-<p>One of the most powerful components of go templates is the ability to
-stack actions one after another. This is done by using pipes. Borrowed
-from unix pipes, the concept is simple, each pipeline&rsquo;s output becomes the
-input of the following pipe.</p>
-<p>Because of the very simple syntax of go templates, the pipe is essential
-to being able to chain together function calls. One limitation of the
-pipes is that they only can work with a single value and that value
-becomes the last parameter of the next pipeline.</p>
-<p>A few simple examples should help convey how to use the pipe.</p>
-<p><strong>Example 1 :</strong></p>
-<pre><code>{{ if eq 1 1 }} Same {{ end }}
-</code></pre>
-<p>is the same as</p>
-<pre><code>{{ eq 1 1 | if }} Same {{ end }}
-</code></pre>
-<p>It does look odd to place the if at the end, but it does provide a good
-illustration of how to use the pipes.</p>
-<p><strong>Example 2 :</strong></p>
-<pre><code>{{ index .Params &quot;disqus_url&quot; | html }}
-</code></pre>
-<p>Access the page parameter called &ldquo;disqus_url&rdquo; and escape the HTML.</p>
-<p><strong>Example 3 :</strong></p>
-<pre><code>{{ if or (or (isset .Params &quot;title&quot;) (isset .Params &quot;caption&quot;)) (isset .Params &quot;attr&quot;)}}
-Stuff Here
-{{ end }}
-</code></pre>
-<p>Could be rewritten as</p>
-<pre><code>{{  isset .Params &quot;caption&quot; | or isset .Params &quot;title&quot; | or isset .Params &quot;attr&quot; | if }}
-Stuff Here
-{{ end }}
-</code></pre>
-<h2 id="context-aka-the-dot">Context (aka. the dot)</h2>
-<p>The most easily overlooked concept to understand about go templates is that {{ . }}
-always refers to the current context. In the top level of your template this
-will be the data set made available to it. Inside of a iteration it will have
-the value of the current item. When inside of a loop the context has changed. .
-will no longer refer to the data available to the entire page. If you need to
-access this from within the loop you will likely want to set it to a variable
-instead of depending on the context.</p>
-<p><strong>Example:</strong></p>
-<pre><code>  {{ $title := .Site.Title }}
-  {{ range .Params.tags }}
-    &lt;li&gt; &lt;a href=&quot;{{ $baseurl }}/tags/{{ . | urlize | lower  }}&quot;&gt;{{ . }}&lt;/a&gt; - {{ $title }} &lt;/li&gt;
-  {{ end }}
-</code></pre>
-<p>Notice how once we have entered the loop the value of {{ . }} has changed. We
-have defined a variable outside of the loop so we have access to it from within
-the loop.</p>
-<h1 id="hugo-parameters">Hugo Parameters</h1>
-<p>Hugo provides the option of passing values to the template language
-through the site configuration (for sitewide values), or through the meta
-data of each specific piece of content. You can define any values of any
-type (supported by your front matter/config format) and use them however
-you want to inside of your templates.</p>
-<h2 id="using-content-page-parameters">Using Content (page) Parameters</h2>
-<p>In each piece of content you can provide variables to be used by the
-templates. This happens in the <a href="/content/front-matter">front matter</a>.</p>
-<p>An example of this is used in this documentation site. Most of the pages
-benefit from having the table of contents provided. Sometimes the TOC just
-doesn&rsquo;t make a lot of sense. We&rsquo;ve defined a variable in our front matter
-of some pages to turn off the TOC from being displayed.</p>
-<p>Here is the example front matter:</p>
-<pre tabindex="0"><code>---
-title: &quot;Permalinks&quot;
-date: &quot;2013-11-18&quot;
-aliases:
-  - &quot;/doc/permalinks/&quot;
-groups: [&quot;extras&quot;]
-groups_weight: 30
-notoc: true
----
-</code></pre><p>Here is the corresponding code inside of the template:</p>
-<pre><code>  {{ if not .Params.notoc }}
-    &lt;div id=&quot;toc&quot; class=&quot;well col-md-4 col-sm-6&quot;&gt;
-    {{ .TableOfContents }}
-    &lt;/div&gt;
-  {{ end }}
-</code></pre>
-<h2 id="using-site-config-parameters">Using Site (config) Parameters</h2>
-<p>In your top-level configuration file (eg, <code>config.yaml</code>) you can define site
-parameters, which are values which will be available to you in chrome.</p>
-<p>For instance, you might declare:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">params</span>:
-  <span style="color:#f92672">CopyrightHTML</span>: <span style="color:#e6db74">&#34;Copyright &amp;#xA9; 2013 John Doe. All Rights Reserved.&#34;</span>
-  <span style="color:#f92672">TwitterUser</span>: <span style="color:#e6db74">&#34;spf13&#34;</span>
-  <span style="color:#f92672">SidebarRecentLimit</span>: <span style="color:#ae81ff">5</span>
-</code></pre></div><p>Within a footer layout, you might then declare a <code>&lt;footer&gt;</code> which is only
-provided if the <code>CopyrightHTML</code> parameter is provided, and if it is given,
-you would declare it to be HTML-safe, so that the HTML entity is not escaped
-again.  This would let you easily update just your top-level config file each
-January 1st, instead of hunting through your templates.</p>
-<pre tabindex="0"><code>{{if .Site.Params.CopyrightHTML}}&lt;footer&gt;
-&lt;div class=&quot;text-center&quot;&gt;{{.Site.Params.CopyrightHTML | safeHtml}}&lt;/div&gt;
-&lt;/footer&gt;{{end}}
-</code></pre><p>An alternative way of writing the &ldquo;if&rdquo; and then referencing the same value
-is to use &ldquo;with&rdquo; instead. With rebinds the context <code>.</code> within its scope,
-and skips the block if the variable is absent:</p>
-<pre tabindex="0"><code>{{with .Site.Params.TwitterUser}}&lt;span class=&quot;twitter&quot;&gt;
-&lt;a href=&quot;https://twitter.com/{{.}}&quot; rel=&quot;author&quot;&gt;
-&lt;img src=&quot;/images/twitter.png&quot; width=&quot;48&quot; height=&quot;48&quot; title=&quot;Twitter: {{.}}&quot;
- alt=&quot;Twitter&quot;&gt;&lt;/a&gt;
-&lt;/span&gt;{{end}}
-</code></pre><p>Finally, if you want to pull &ldquo;magic constants&rdquo; out of your layouts, you can do
-so, such as in this example:</p>
-<pre tabindex="0"><code>&lt;nav class=&quot;recent&quot;&gt;
-  &lt;h1&gt;Recent Posts&lt;/h1&gt;
-  &lt;ul&gt;{{range first .Site.Params.SidebarRecentLimit .Site.Recent}}
-    &lt;li&gt;&lt;a href=&quot;{{.RelPermalink}}&quot;&gt;{{.Title}}&lt;/a&gt;&lt;/li&gt;
-  {{end}}&lt;/ul&gt;
-&lt;/nav&gt;
-</code></pre>
+</li>
+</ul>
+<h1 id="git-목표">GIT 목표</h1>
+<ul>
+<li>빠른 속도</li>
+<li>단순한 구조</li>
+<li>비선형적 개발(동시 다발적 브랜치)</li>
+<li>완벽한 분산</li>
+<li>Linux 커널 같은 대형 프로젝트에서 유용</li>
+</ul>
+<h1 id="git-cli">GIT CLI</h1>
+<h3 id="git을-사용하는-방법">GIT을 사용하는 방법</h3>
+<ul>
+<li>git CLI</li>
+<li>다양한 GUI 지원 SW 존재</li>
+<li>git의 모든 기능을 지원하는 SW는 git CLI</li>
+</ul>
+<h3 id="git-설치">GIT 설치</h3>
+<ul>
+<li>리눅스에는 기본적으로 설치되어 있음</li>
+<li>없을 경우 sudo apt install git</li>
+</ul>
+<h3 id="작업-디렉토리-생성">작업 디렉토리 생성</h3>
+<ul>
+<li>ex) mkdir -p ~/projects/w11/git-ex</li>
+</ul>
+<h3 id="git-저장소-생성">git 저장소 생성</h3>
+<ul>
+<li>git init : 작업 디렉토리 git 저장소로 초기화</li>
+<li>git branch : 브랜치 보기, 기본 브랜치는 main</li>
+</ul>
+<h3 id="git-업그레이드">git 업그레이드</h3>
+<ul>
+<li>sudo add-apt-repository ppa:git-core/ppa -y</li>
+<li>sudo apt update</li>
+<li>sudo apt install git -y</li>
+</ul>
+<h3 id="git-저장소-재생성">git 저장소 재생성</h3>
+<ul>
+<li>git 저장소 삭제 &amp; 디렉토리 삭제</li>
+<li>git init 실행</li>
+<li>브랜치 확인</li>
+</ul>
+<h1 id="git-cli-사용법">GIT CLI 사용법</h1>
+<h3 id="소스-관리">소스 관리</h3>
+<ul>
+<li>
+<p>관리 대상 여부</p>
+<ul>
+<li>tracked(추적대상) : 관리 대상</li>
+<li>untracked(추적대상 X) : 관리 대상 X</li>
+<li>git status 로 확인</li>
+</ul>
+</li>
+<li>
+<p>관리 대상 상태</p>
+<ul>
+<li>committed : 버전관리에 안전하게 저장됨, snapshot</li>
+<li>staged : 커밋할 대상이라고 표시된 상태</li>
+<li>modified : 파일이 수정되었지만 staged 되지 않음</li>
+<li>tracked인 파일은 변경을 감지함</li>
+<li>untracked인 파일은 변경을 감지하지 않음</li>
+<li>untracked인 파일이 새로 생긴 것은 감지함</li>
+</ul>
+</li>
+<li>
+<p>관리 대상으로 변경</p>
+<ul>
+<li>git add &lt;file or 디렉토리&gt;
+<ul>
+<li>untracked 파일을 tracked로 변경</li>
+<li>동시에 staged로 변경</li>
+<li>디렉토리를 지정한 경우 하위 모든 파일 변경</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Commit</p>
+<ul>
+<li>git commit
+<ul>
+<li>staged 상태인 파일만 커밋 가능</li>
+</ul>
+</li>
+<li>커밋 메시지 입력 필요</li>
+</ul>
+</li>
+<li>
+<p>비교</p>
+<ul>
+<li>git diff</li>
+</ul>
+</li>
+<li>
+<p>커밋 히스토리</p>
+<ul>
+<li>git log
+<ul>
+<li>커밋한 이력 보여줌(최근 커밋이 제일 위)</li>
+</ul>
+</li>
+<li>git log &ndash;patch
+<ul>
+<li>비교 결과</li>
+<li>git log &ndash;patch -2는 최근 2개의 커밋만 비교</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>파일 삭제</p>
+<ul>
+<li>git rm
+<ul>
+<li>tracked 상태의 파일 삭제</li>
+<li>커밋 필요</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>파일 이름 변경</p>
+<ul>
+<li>git mv file_from file_to</li>
+</ul>
+</li>
+<li>
+<p>되돌리기</p>
+<ul>
+<li>버전 관리 시스템이므로 과거의 스냅샷으로 되돌릴 수
+있음, 즉 잘 못 수정된 것을 얼마든지 되돌릴 수 있음</li>
+<li>하지만 잘 못 되돌린 것은 다시 되돌릴 수 없으므로
+되돌리는 작업은 각별한 주의를 요함</li>
+</ul>
+</li>
+<li>
+<p>완료한 커밋 수정</p>
+<ul>
+<li>git commit &ndash;amend : 커밋 재작성</li>
+<li>수정을 한 후 하나의 커밋으로 기록됨</li>
+</ul>
+</li>
+<li>
+<p>파일 상태를 unstage로 변경</p>
+<ul>
+<li>git reset HEAD &lt;파일&gt;</li>
+</ul>
+</li>
+<li>
+<p>Modified 파일을 되돌리기</p>
+<ul>
+<li>git checkout &ndash; <!-- raw HTML omitted --></li>
+<li>수정한 내용이 모두 사라지므로 주의 해서 사용</li>
+<li>브랜치를 사용해야 함</li>
+</ul>
+</li>
+<li>
+<p>이전 커밋으로 되돌리기</p>
+<ul>
+<li>마지막 커밋을 취소
+<ul>
+<li>git revert &lt;되돌리고 싶은 커밋 이름&gt;</li>
+</ul>
+</li>
+<li>특정 커밋으로 이동
+<ul>
+<li>git reset &ndash;hard &lt;이동하려는 이전 커밋 이름&gt;</li>
+</ul>
+</li>
+<li>협업을 할 경우 되돌리기를 주의해야 하며, 자신만의
+브랜치를 만들어서 하는 것이 좋음</li>
+</ul>
+</li>
+<li>
+<p>branch</p>
+<ul>
+<li>코드를 통째로 복사해서 독립적으로 개발</li>
+<li>새로운 작업은 브랜치를 만들어서 하고 완성되면 합병</li>
+<li>어떻게 브랜치를 만들고 합병할 지 전략 필요</li>
+</ul>
+</li>
+<li>
+<p>branch 명령</p>
+<ul>
+<li>git branch : 브랜치 보기</li>
+<li>git branch &lt;새 브랜치 이름&gt; : 브랜치 만들기</li>
+<li>git checkout &lt;브랜치 이름&gt; : 브랜치 이동</li>
+<li>git checkout -b &lt;새 브랜치 이름&gt;
+: 브랜치를 만들고 이동</li>
+<li>git merge : 브랜치 합병</li>
+<li>git log &ndash;oneline &ndash;decorate &ndash;graph &ndash;all
+: 로그에 브랜치가 잘 나타나게 표시</li>
+<li>git branch -d &lt;브랜치 이름&gt; : 브랜치 삭제</li>
+</ul>
+</li>
+</ul>
+
                         </div>
                         
                         
@@ -669,19 +630,23 @@ so, such as in this example:</p>
             
             
             <li>
-                <a href="/teamWebPage/categories/lorem">LOREM (8)</a>
+                <a href="/teamWebPage/categories/git">GIT (2)</a>
             </li>
             
             <li>
-                <a href="/teamWebPage/categories/programming">PROGRAMMING (12)</a>
+                <a href="/teamWebPage/categories/lorem">LOREM (6)</a>
             </li>
             
             <li>
-                <a href="/teamWebPage/categories/pseudo">PSEUDO (8)</a>
+                <a href="/teamWebPage/categories/programming">PROGRAMMING (9)</a>
             </li>
             
             <li>
-                <a href="/teamWebPage/categories/starting">STARTING (4)</a>
+                <a href="/teamWebPage/categories/pseudo">PSEUDO (6)</a>
+            </li>
+            
+            <li>
+                <a href="/teamWebPage/categories/starting">STARTING (3)</a>
             </li>
             
         </ul>
@@ -779,6 +744,32 @@ so, such as in this example:</p>
                 
                 <div class="item same-height-row clearfix">
                     <div class="image same-height-always">
+                        <a href="https://choyoungseo20.github.io/teamWebPage/git/git-post/">
+                          
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/1200px-Git-logo.svg.png" class="img-responsive" alt="GIT 개요와 사용법">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="https://choyoungseo20.github.io/teamWebPage/git/git-post/">GIT 개요와 사용법</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="https://choyoungseo20.github.io/teamWebPage/git/github-post/">
+                          
+                            <img src="https://alyssonmach.github.io/Minicurso-Git-e-GitHub/img/5.png" class="img-responsive" alt="GITHUB">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="https://choyoungseo20.github.io/teamWebPage/git/github-post/">GITHUB</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
                         <a href="https://choyoungseo20.github.io/teamWebPage/container/categories-post/">
                           
                             <img src="/teamWebPage/img/banners/banner-4.jpg" class="img-responsive" alt="Categories Post">
@@ -787,32 +778,6 @@ so, such as in this example:</p>
                     </div>
                     <div class="name same-height-always">
                         <h5><a href="https://choyoungseo20.github.io/teamWebPage/container/categories-post/">Categories Post</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="https://choyoungseo20.github.io/teamWebPage/git/categories-post/">
-                          
-                            <img src="/teamWebPage/img/banners/banner-4.jpg" class="img-responsive" alt="Categories Post">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="https://choyoungseo20.github.io/teamWebPage/git/categories-post/">Categories Post</a></h5>
-                    </div>
-                </div>
-                
-                <div class="item same-height-row clearfix">
-                    <div class="image same-height-always">
-                        <a href="https://choyoungseo20.github.io/teamWebPage/linux/categories-post/">
-                          
-                            <img src="/teamWebPage/img/banners/banner-4.jpg" class="img-responsive" alt="Categories Post">
-                          
-                        </a>
-                    </div>
-                    <div class="name same-height-always">
-                        <h5><a href="https://choyoungseo20.github.io/teamWebPage/linux/categories-post/">Categories Post</a></h5>
                     </div>
                 </div>
                 
